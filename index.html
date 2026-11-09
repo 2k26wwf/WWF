@@ -92,6 +92,14 @@ main.shell > section[role="tabpanel"]{animation:panelEnter .18s ease-out;min-hei
  const ids=['overview','roster','history','classics','legacy','draft'];
  function activate(id,scroll){
   if(!ids.includes(id))id='overview';
+  // Switch the artwork for the Roster tab; keep image assets separately in GitHub.
+  const banner=document.querySelector('.banner-shell .banner');
+  if(banner){
+   const roster=id==='roster';
+   const src=roster?'images/Vintage%201984%20Wrestling%20Roster%20Poster.png':'https://2k26wwf.github.io/WWF/images/realignment-era-banner.webp';
+   if(banner.getAttribute('src')!==src)banner.setAttribute('src',src);
+   banner.alt=roster?'Vintage WWF 1984 Roster banner':'WWF Universe 1984 Realignment Era banner';
+  }
   document.querySelectorAll('main.shell > section[role="tabpanel"]').forEach(el=>{el.hidden=el.id!==id});
   document.querySelectorAll('.nav[role="tablist"] a[role="tab"]').forEach(el=>{
    const yes=el.getAttribute('aria-controls')===id;
