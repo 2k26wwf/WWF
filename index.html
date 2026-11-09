@@ -57,8 +57,10 @@ main.shell > section[role="tabpanel"]{animation:panelEnter .18s ease-out;min-hei
 @media(max-width:600px){.nav[role="tablist"]{justify-content:flex-start!important}.nav[role="tablist"] a[role="tab"]{padding:10px 12px;font-size:12px}}
 
 /* Keep the complete Realignment Era artwork visible, with a compact desktop banner. */
-.banner-shell{overflow:hidden}
-.banner-shell .banner{width:100%;height:auto;max-height:330px;object-fit:contain;object-position:center;display:block}
+/* Let the site's own page gradient show through around the artwork.
+   Remove the old dark fill and frame that appeared as a solid rectangle. */
+.banner-shell{overflow:hidden;background:transparent;border:0;border-radius:0;box-shadow:none}
+.banner-shell .banner{width:100%;height:auto;max-height:330px;object-fit:contain;object-position:center;display:block;background:transparent}
 @media(max-width:950px){.banner-shell .banner{max-height:none}}
 @media(min-width:951px){
   .site-head .head-inner{padding-top:10px;padding-bottom:10px}
